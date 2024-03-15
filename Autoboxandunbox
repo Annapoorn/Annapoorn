@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+        // Autoboxing: converting primitive int to Integer object
+        Integer iObj = 10;
+
+        // Unboxing: converting Integer object to primitive int
+        int i = iObj;
+
+        System.out.println("Autoboxing: " + iObj);
+        System.out.println("Unboxing: " + i);
+    }
+}
