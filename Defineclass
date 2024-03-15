@@ -1,0 +1,29 @@
+// Define the class
+class Person {
+    // Fields
+    String name;
+    int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method
+    public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Instantiate an object
+        Person person1 = new Person("John", 30);
+        
+        // Call a method on the object
+        person1.display();
+    }
+}
