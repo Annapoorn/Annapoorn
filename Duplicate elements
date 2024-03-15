@@ -1,0 +1,25 @@
+import java.util.HashSet;
+
+public class DuplicateElements {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5, 1}; // Array with duplicate elements
+
+        // HashSet to store unique elements
+        HashSet<Integer> set = new HashSet<>();
+
+        boolean hasDuplicates = false;
+
+        for (int number : numbers) {
+            if (!set.add(number)) {
+                hasDuplicates = true;
+                break;
+            }
+        }
+
+        if (hasDuplicates) {
+            System.out.println("Array contains duplicate elements.");
+        } else {
+            System.out.println("Array does not contain duplicate elements.");
+        }
+    }
+}
