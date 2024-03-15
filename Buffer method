@@ -1,0 +1,27 @@
+public class StringMethodsDemo {
+    public static void main(String[] args) {
+        // String methods
+        String str = "Hello, World!";
+        System.out.println("Original String: " + str);
+        System.out.println("Length: " + str.length());
+        System.out.println("Character at index 7: " + str.charAt(7));
+        System.out.println("Substring from index 7 to end: " + str.substring(7));
+        System.out.println("Index of 'World': " + str.indexOf("World"));
+        System.out.println("Contains 'Hello': " + str.contains("Hello"));
+        System.out.println("Uppercase: " + str.toUpperCase());
+        System.out.println("Lowercase: " + str.toLowerCase());
+        System.out.println("Replaced 'Hello' with 'Hi': " + str.replace("Hello", "Hi"));
+
+        // StringBuffer methods
+        StringBuffer buffer = new StringBuffer("Hello");
+        System.out.println("\nOriginal StringBuffer: " + buffer);
+        buffer.append(", World!");
+        System.out.println("Appended StringBuffer: " + buffer);
+        buffer.insert(5, " Java");
+        System.out.println("Inserted StringBuffer: " + buffer);
+        buffer.delete(5, 10);
+        System.out.println("Deleted StringBuffer: " + buffer);
+        buffer.reverse();
+        System.out.println("Reversed StringBuffer: " + buffer);
+    }
+}
