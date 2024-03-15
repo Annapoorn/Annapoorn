@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an array of integers
+        int[] numbers = new int[5]; // Creating an array of size 5
+        // Initializing the array elements
+        numbers[0] = 5;
+        numbers[1] = 2;
+        numbers[2] = 8;
+        numbers[3] = 1;
+        numbers[4] = 3;
+
+        // Accessing array elements
+        System.out.println("Original Array:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+        System.out.println();
+
+        // Sorting the array
+        Arrays.sort(numbers);
+
+        // Accessing array elements after sorting
+        System.out.println("Sorted Array:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+        System.out.println();
+    }
+}
