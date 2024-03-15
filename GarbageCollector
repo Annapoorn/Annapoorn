@@ -1,0 +1,24 @@
+public class GarbageCollectorExample {
+    public static void main(String[] args) {
+        // Creating objects
+        for (int i = 0; i < 10000; i++) {
+            new GarbageCollectorExample();
+        }
+
+        // Requesting garbage collection
+        System.gc();
+
+        // Sleeping to let the garbage collector do its job
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Overriding finalize method to print a message when object is garbage collected
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Object garbage collected: " + this);
+    }
+}
