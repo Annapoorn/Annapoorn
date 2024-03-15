@@ -1,0 +1,24 @@
+if (condition) {
+    // code to execute if condition is true
+}
+if (condition) {
+    // code to execute if condition is true
+} else {
+    // code to execute if condition is false
+}
+if (condition1) {
+    // code to execute if condition1 is true
+} else if (condition2) {
+    // code to execute if condition2 is true
+} else {
+    // code to execute if none of the above conditions are true
+}
+import java.util.Scanner;
+
+Scanner scanner = new Scanner(System.in);
+int num = scanner.nextInt(); // Read an integer from the user
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+String name = reader.readLine(); // Read a string from the user
