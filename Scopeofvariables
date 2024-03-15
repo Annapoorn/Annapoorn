@@ -1,0 +1,31 @@
+public class MyClass {
+    // Instance variable
+    private int instanceVar;
+
+    // Class variable
+    private static int classVar;
+
+    // Constructor
+    public MyClass(int instanceVar) {
+        this.instanceVar = instanceVar;
+    }
+
+    // Instance method
+    public void instanceMethod() {
+        int localVar = 10; // Local variable
+        System.out.println("Instance variable: " + instanceVar);
+        System.out.println("Local variable: " + localVar);
+    }
+
+    // Class method
+    public static void classMethod() {
+        classVar = 20;
+        System.out.println("Class variable: " + classVar);
+    }
+
+    public static void main(String[] args) {
+        MyClass obj = new MyClass(5); // Instantiating the class
+        obj.instanceMethod(); // Calling instance method
+        classMethod(); // Calling class method
+    }
+}
