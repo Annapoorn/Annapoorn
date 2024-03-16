@@ -1,0 +1,128 @@
+import java.util.*;
+
+// Represents a library book
+class Book {
+    private String title;
+    private String author;
+    private boolean available;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.available = true;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", available=" + available +
+                '}';
+    }
+}
+
+// Represents a library
+class Library {
+    private Map<String, Book> books;
+
+    public Library() {
+        this.books = new HashMap<>();
+    }
+
+    public void addBook(Book book) {
+        books.put(book.getTitle(), book);
+    }
+
+    public Book getBook(String title) {
+        return books.get(title);
+    }
+
+    public void displayBooks() {
+        for (Book book : books.values()) {
+            System.out.println(book);
+        }
+    }
+}
+
+// Represents a user
+class User {
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Represents a library transaction
+class LibraryTransaction {
+    private Library library;
+
+    public LibraryTransaction(Library library) {
+        this.library = library;
+    }
+
+    public void issueBook(User user, String title) {
+        Book book = library.getBook(title);
+        if (book != null && book.isAvailable()) {
+            System.out.println("Issuing book: " + book.getTitle() + " to " + user.getName());
+            book.setAvailable(false);
+        } else {
+            System.out.println("Book not available");
+        }
+    }
+
+    public void returnBook(User user, String title) {
+        Book book = library.getBook(title);
+        if (book != null && !book.isAvailable()) {
+            System.out.println("Returning book: " + book.getTitle() + " by " + user.getName());
+            book.setAvailable(true);
+        } else {
+            System.out.println("Invalid return operation");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Library library = new Library();
+
+        // Adding books to the library
+        library.addBook(new Book("Book1", "Author1"));
+        library.addBook(new Book("Book2", "Author2"));
+        library.addBook(new Book("Book3", "Author3"));
+
+        // Displaying available books
+        library.displayBooks();
+
+        User user1 = new User("User1");
+        User user2 = new User("User2");
+
+        // Issuing and returning books
+        LibraryTransaction transaction = new LibraryTransaction(library);
+        transaction.issueBook(user1, "Book1");
+        transaction.issueBook(user2, "Book2");
+        transaction.returnBook(user1, "Book1");
+        transaction.issueBook(user1, "Book3");
+    }
+}
