@@ -1,0 +1,95 @@
+import java.util.Scanner;
+
+// Interface for arithmetic operations
+interface Operation {
+    double execute(double operand1, double operand2);
+}
+
+// Addition operation
+class Addition implements Operation {
+    public double execute(double operand1, double operand2) {
+        return operand1 + operand2;
+    }
+}
+
+// Subtraction operation
+class Subtraction implements Operation {
+    public double execute(double operand1, double operand2) {
+        return operand1 - operand2;
+    }
+}
+
+// Multiplication operation
+class Multiplication implements Operation {
+    public double execute(double operand1, double operand2) {
+        return operand1 * operand2;
+    }
+}
+
+// Division operation
+class Division implements Operation {
+    public double execute(double operand1, double operand2) {
+        if (operand2 == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return operand1 / operand2;
+    }
+}
+
+// Calculator class to manage operations
+class Calculator {
+    private Operation operation;
+
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+
+    public double calculate(double operand1, double operand2) {
+        return operation.execute(operand1, operand2);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+
+        System.out.println("Choose an operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+
+        int choice = scanner.nextInt();
+
+        Operation operation = null;
+        switch (choice) {
+            case 1:
+                operation = new Addition();
+                break;
+            case 2:
+                operation = new Subtraction();
+                break;
+            case 3:
+                operation = new Multiplication();
+                break;
+            case 4:
+                operation = new Division();
+                break;
+            default:
+                System.out.println("Invalid choice");
+                System.exit(0);
+        }
+
+        calculator.setOperation(operation);
+
+        System.out.println("Enter two operands:");
+        double operand1 = scanner.nextDouble();
+        double operand2 = scanner.nextDouble();
+
+        double result = calculator.calculate(operand1, operand2);
+        System.out.println("Result: " + result);
+
+        scanner.close();
+    }
+}
