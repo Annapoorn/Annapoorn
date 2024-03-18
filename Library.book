@@ -1,0 +1,46 @@
+package com.library.book;
+
+public class Book {
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    // Getters and setters
+}
+
+public class BookCatalog {
+    private List<Book> books = new ArrayList<>();
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
+    public Book findBook(String title) {
+        return books.stream()
+                    .filter(book -> book.getTitle().equals(title))
+                    .findFirst()
+                    .orElse(null);
+    }
+
+    // Other book management methods
+}
+
+public class BookTransaction {
+    public void checkoutBook(User user, Book book) {
+        // Implement checkout logic
+    }
+
+    public void returnBook(User user, Book book) {
+        // Implement return logic
+    }
+
+    // Other book transaction methods
+}
