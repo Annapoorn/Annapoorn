@@ -1,0 +1,64 @@
+// Base class
+abstract class Shape {
+    public abstract double area();
+}
+
+// Derived classes
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double area() {
+        return width * height;
+    }
+}
+
+// Another derived class
+class Square extends Shape {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    public double area() {
+        return side * side;
+    }
+}
+
+// AreaCalculator class that follows OCP
+class AreaCalculator {
+    public double calculateArea(Shape shape) {
+        return shape.area();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AreaCalculator calculator = new AreaCalculator();
+        Shape circle = new Circle(5);
+        Shape rectangle = new Rectangle(5, 10);
+        Shape square = new Square(5);
+
+        System.out.println("Circle Area: " + calculator.calculateArea(circle));
+        System.out.println("Rectangle Area: " + calculator.calculateArea(rectangle));
+        System.out.println("Square Area: " + calculator.calculateArea(square));
+    }
+}
