@@ -1,0 +1,28 @@
+// Interface A
+interface A {
+    void methodA();
+}
+
+// Interface B
+interface B {
+    void methodB();
+}
+
+// Class implementing both interfaces
+class MyClass implements A, B {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+
+    public void methodB() {
+        System.out.println("Method B");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.methodA();
+        obj.methodB();
+    }
+}
