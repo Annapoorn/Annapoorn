@@ -1,0 +1,25 @@
+interface A {
+    void methodA();
+}
+
+interface B {
+    void methodB();
+}
+
+class MyClass implements A, B {
+    public void methodA() {
+        System.out.println("Inside methodA");
+    }
+
+    public void methodB() {
+        System.out.println("Inside methodB");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.methodA();
+        obj.methodB();
+    }
+}
