@@ -1,0 +1,71 @@
+class Car {
+    private String make;
+    private String model;
+    private int year;
+    
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+    
+    public String getMake() {
+        return make;
+    }
+    
+    public String getModel() {
+        return model;
+    }
+    
+    public int getYear() {
+        return year;
+    }
+}
+class Book {
+    private String title;
+    private String author;
+    private int publicationYear;
+    
+    public Book(String title, String author, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getAuthor() {
+        return author;
+    }
+    
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+}
+class Person {
+    private String name;
+    private int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+}
+Car myCar = new Car("Toyota", "Corolla", 2022);
+System.out.println("My car is a " + myCar.getYear() + " " + myCar.getMake() + " " + myCar.getModel());
+
+Person person = new Person("John Doe", 30);
+System.out.println(person.getName() + " is " + person.getAge() + " years old");
+
+Book book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
+System.out.println("The book \"" + book.getTitle() + "\" by " + book.getAuthor() + " was published in " + book.getPublicationYear());
